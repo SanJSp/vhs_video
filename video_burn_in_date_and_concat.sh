@@ -3,7 +3,7 @@
 # get capitzalized creation date of each file and add drawtext filter containing creation date
 for f in *.MP4 ; do 
 	FILE_CREATION_DATE=`date +%s -r $f`000000;
-	ffmpeg -y -i $f -vf "drawtext=expansion=strftime:basetime=${FILE_CREATION_DATE}:text='%H\\:%M %d. %b %Y':fontsize=24:fontcolor='white@0.4':x=w-tw-50:y=h-th-50" "${f%%.*}_timecoded.mkv"
+	ffmpeg -y -i $f -vf "drawtext=expansion=strftime:basetime=${FILE_CREATION_DATE}:text='%H\\:%M %d. %b %Y':fontsize=(h/35):fontcolor='white@0.4':x=w-tw-50:y=h-th-50" "${f%%.*}_timecoded.mkv"
 done;
 
 touch list.txt
